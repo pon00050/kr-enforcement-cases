@@ -213,7 +213,7 @@ def _enrich_one(
         )
         parsed = response.content[0].input
         return _parse_tool_response(parsed, company_name, audit_years, listed_status, status)
-    except (AttributeError, KeyError, ValueError, IndexError, Exception) as e:
+    except (AttributeError, KeyError, ValueError, IndexError) as e:
         log.warning("  Enrichment failed for %s: %s", company_name, e)
         return _build_fallback(company_name, audit_years, listed_status)
 
