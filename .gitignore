@@ -1,0 +1,22 @@
+# Data (large, reproducible via scraper)
+data/raw/
+data/processed/
+data/curated/fss_*.json
+data/curated/sfc_*.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Environment
+.env
+
+# Caches
+docs_cache/
+
+# IDE / tools
+.claude/
+.obsidian/
+knowledge/
