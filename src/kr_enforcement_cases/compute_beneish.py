@@ -45,6 +45,8 @@ log = logging.getLogger(__name__)
 # Minimum violation year for reliable DART XBRL data
 MIN_VIOLATION_YEAR = 2016
 
+_RE_COMMA_SPACE = re.compile(r'[,\s]')
+
 
 # ─── DART data fetching ───────────────────────────────────────────────────────
 
@@ -52,7 +54,7 @@ def _parse_amount(val: str | None) -> float | None:
     """Convert DART amount string to float. Returns None if empty or non-numeric."""
     if not val or str(val).strip() in ("", "-", "－"):
         return None
-    cleaned = re.sub(r'[,\s]', '', str(val))
+    cleaned = _RE_COMMA_SPACE.sub('', str(val))
     try:
         return float(cleaned)
     except ValueError:

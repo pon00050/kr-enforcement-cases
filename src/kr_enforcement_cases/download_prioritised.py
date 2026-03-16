@@ -76,12 +76,6 @@ def download_tier(
     return downloaded, skipped, failed
 
 
-def _was_just_written(path: Path) -> bool:
-    """Heuristic: treat as 'just downloaded' if file is very recent (< 5 s old)."""
-    import time
-    return (time.time() - path.stat().st_mtime) < 5
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Download FSS PDFs for cases at or above a specified tier"
