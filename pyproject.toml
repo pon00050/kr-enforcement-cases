@@ -23,6 +23,10 @@ dependencies = [
     "python-hwpx>=2.0",
 ]
 
+[project.urls]
+Repository = "https://github.com/pon00050/kr-enforcement-cases"
+Issues = "https://github.com/pon00050/kr-enforcement-cases/issues"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0",
