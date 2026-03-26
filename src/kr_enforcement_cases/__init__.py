@@ -15,6 +15,8 @@ load_dart_matches() -> pd.DataFrame
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 
 from kr_enforcement_cases.paths import (
@@ -28,6 +30,14 @@ __all__ = [
     "load_beneish_ratios",
     "load_dart_matches",
 ]
+
+
+def _load_csv(path: Path, build_cmd: str) -> pd.DataFrame:
+    if not path.exists():
+        raise FileNotFoundError(
+            f"{path.name} not found at {path}. Run: {build_cmd}"
+        )
+    return pd.read_csv(path)
 
 
 def load_violations() -> pd.DataFrame:
@@ -45,12 +55,7 @@ def load_violations() -> pd.DataFrame:
         If violations.csv has not been built yet.
         Run: python -m kr_enforcement_cases.build_violation_db
     """
-    if not VIOLATIONS_CSV.exists():
-        raise FileNotFoundError(
-            f"violations.csv not found at {VIOLATIONS_CSV}. "
-            "Run: python -m kr_enforcement_cases.build_violation_db"
-        )
-    return pd.read_csv(VIOLATIONS_CSV)
+    return _load_csv(VIOLATIONS_CSV, "python -m kr_enforcement_cases.build_violation_db")
 
 
 def load_beneish_ratios() -> pd.DataFrame:
@@ -68,12 +73,7 @@ def load_beneish_ratios() -> pd.DataFrame:
         If beneish_ratios.csv has not been built.
         Run: python -m kr_enforcement_cases.compute_beneish
     """
-    if not BENEISH_RATIOS_CSV.exists():
-        raise FileNotFoundError(
-            f"beneish_ratios.csv not found at {BENEISH_RATIOS_CSV}. "
-            "Run: python -m kr_enforcement_cases.compute_beneish"
-        )
-    return pd.read_csv(BENEISH_RATIOS_CSV)
+    return _load_csv(BENEISH_RATIOS_CSV, "python -m kr_enforcement_cases.compute_beneish")
 
 
 def load_dart_matches() -> pd.DataFrame:
@@ -90,9 +90,4 @@ def load_dart_matches() -> pd.DataFrame:
         If dart_matches.csv has not been built.
         Run: python -m kr_enforcement_cases.match_dart_companies
     """
-    if not DART_MATCHES_CSV.exists():
-        raise FileNotFoundError(
-            f"dart_matches.csv not found at {DART_MATCHES_CSV}. "
-            "Run: python -m kr_enforcement_cases.match_dart_companies"
-        )
-    return pd.read_csv(DART_MATCHES_CSV)
+    return _load_csv(DART_MATCHES_CSV, "python -m kr_enforcement_cases.match_dart_companies")
