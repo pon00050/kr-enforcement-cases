@@ -33,7 +33,7 @@ BENEISH_COMPONENTS: list[str] = ["DSRI", "GMI", "AQI", "SGI", "DEPI", "SGAI", "L
 HAIKU_MODEL  = "claude-haiku-4-5-20251001"
 SONNET_MODEL = "claude-sonnet-4-6"
 
-# ─── Signal vocabulary (mirrors jfia-forensic SIGNAL_SEED_VOCABULARY) ─────────
+# ─── Signal vocabulary (superset of jfia-forensic SIGNAL_SEED_VOCABULARY) ─────
 
 SIGNAL_SEED_VOCABULARY: frozenset[str] = frozenset({
     # Beneish M-Score components
