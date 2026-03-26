@@ -4,6 +4,8 @@ SCHEME_TYPES, FSS_VIOLATION_CATEGORIES, and SIGNAL_SEED_VOCABULARY mirror
 jfia-forensic/src/jfia_forensic/constants.py (single vocabulary; kept in sync manually).
 """
 
+import os
+
 # ─── Classification enums ──────────────────────────────────────────────────────
 
 SCHEME_TYPES: list[str] = [
@@ -30,8 +32,8 @@ BENEISH_COMPONENTS: list[str] = ["DSRI", "GMI", "AQI", "SGI", "DEPI", "SGAI", "L
 
 # ─── Haiku model ──────────────────────────────────────────────────────────────
 
-HAIKU_MODEL  = "claude-haiku-4-5-20251001"
-SONNET_MODEL = "claude-sonnet-4-6"
+HAIKU_MODEL: str  = os.getenv("ANTHROPIC_HAIKU_MODEL", "claude-haiku-4-5-20251001")
+SONNET_MODEL: str = os.getenv("ANTHROPIC_SONNET_MODEL", "claude-sonnet-4-6")
 
 # ─── Signal vocabulary (superset of jfia-forensic SIGNAL_SEED_VOCABULARY) ─────
 
