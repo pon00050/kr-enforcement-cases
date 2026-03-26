@@ -146,7 +146,7 @@ docs/                      — Data source catalogue, methodology documentation
 ## Ecosystem
 
 Part of the forensic-accounting-toolkit ecosystem. Produces:
-- Enforcement labels for supervised model training (kr-forensic-finance)
+- Enforcement labels for supervised model training (krff-shell)
 - Case precedents for the MCP forensic search tool
 
 ## Documentation
@@ -159,12 +159,15 @@ Part of the forensic-accounting-toolkit ecosystem. Produces:
 | `reports/blind-test-review.md` | A2/A3 blind prompt validation + Sonnet spot-check |
 | `reports/research-journey.md` | Full project narrative |
 | `reports/sfc-source1-session1.md` | SFC Source 1 extraction + enrichment results |
+| `reports/ml-feasibility-and-next-steps.md` | ML feasibility assessment: what's feasible today and the path to a matched control group |
 
 ## Roadmap
 
 **v1.0** (current): Sources 1-3 complete. 328 cases across two regulators, 60 Beneish company-year rows, bias-validated taxonomy.
 
 **v2.0** (planned): Integrate Sources 4-8 — data.go.kr structured CSV, CaseNote third-party database, auditor-side findings, audit firm context, FSC press releases. See `docs/data_sources.md` for details.
+
+**ML readiness** requires a matched non-fraud control group with Beneish ratios (via kr-company-registry + kr-beneish). See `reports/ml-feasibility-and-next-steps.md` for the full assessment.
 
 ## License
 

@@ -360,7 +360,7 @@ signals, fraud theory terms, disclosure_fraud, earnings_smoothing, timing_anomal
 ## Ecosystem
 
 Part of the forensic-accounting-toolkit ecosystem. Produces enforcement labels
-that feed into kr-forensic-finance's supervised model training pipeline, and
+that feed into krff-shell's supervised model training pipeline, and
 case precedents for the MCP forensic search tool (tool #12).
 
 Hub: `../forensic-accounting-toolkit/`
