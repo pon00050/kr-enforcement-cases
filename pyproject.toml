@@ -30,6 +30,8 @@ Issues = "https://github.com/pon00050/kr-enforcement-cases/issues"
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0",
+    "ruff",
+    "mypy",
 ]
 
 [tool.uv]
