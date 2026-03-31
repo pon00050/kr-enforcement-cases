@@ -17,6 +17,8 @@ __pycache__/
 docs_cache/
 
 # IDE / tools
-.claude/
 .obsidian/
 knowledge/
+
+# Scratch scripts (not part of package)
+test_sfc_scrape.py
