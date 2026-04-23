@@ -244,7 +244,7 @@ liability_suppression, related_party, disclosure_fraud
 **SCHEME_TYPES**: earnings_manipulation, revenue_fabrication, asset_inflation,
 liability_suppression, disclosure_fraud, insider_network, cb_bw_manipulation, timing_anomaly
 
-**BENEISH_COMPONENTS**: DSRI, GMI, AQI, SGI, DEPI, LVGI, TATA
+**BENEISH_COMPONENTS**: DSRI, GMI, AQI, SGI, DEPI, SGAI, LVGI, TATA
 
 **SIGNAL_SEED_VOCABULARY**: ~45 forensic signals (see constants.py).
 
@@ -280,3 +280,8 @@ liability_suppression, disclosure_fraud, insider_network, cb_bw_manipulation, ti
 | Only 65 tests for 19 modules | Pipeline modules require live data/API in tests | Deferred — fixture parquets needed |
 | `cohort_comparison.py` is an analysis script in src/ (not a library module) | Legacy placement — moving would break `python -m` invocation | By design until scripts/ gets proper entry points |
 | No tests/conftest.py shared fixtures | Low test count means limited fixture reuse so far | Unblocked |
+
+
+---
+
+**Domain knowledge** (regulatory analysis, buyer research, competitive intelligence, legal compliance) belongs in the hub vault: `forensic-accounting-toolkit/knowledge/`. Engineering docs (API patterns, test strategies, run logs) stay here. After creating a new domain knowledge note, copy it to the hub with gold-standard frontmatter. See hub `CLAUDE.md` §Knowledge Vault for the frontmatter contract.

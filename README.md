@@ -1,5 +1,7 @@
 # kr-enforcement-cases
 
+**[Read the full write-up →](https://ronanwrites.vercel.app/manuals/korean-enforcement-cases)**
+
 Structured dataset of Korean financial enforcement cases from FSS and SFC regulators, with LLM-enriched violation taxonomy, DART-linked Beneish ratios, and a bias-validated extraction methodology.
 
 Built for forensic accounting research, supervised model training, and regulatory pattern analysis.
@@ -11,7 +13,7 @@ Built for forensic accounting research, supervised model training, and regulator
 | `reports/violations.csv` | 240 | One row per violation per case — violation type, scheme type, forensic signals, Beneish components |
 | `reports/beneish_ratios.csv` | 60 | 7 Beneish components + M-Score per company-year, computed from DART financials |
 | `reports/scored_index.csv` | 229 | All FSS cases scored by forensic relevance (Tier 1/2/3) |
-| `data/curated/dart_matches.csv` | 77 | Named companies matched to DART corp_codes (90% match rate) |
+| `data/curated/dart_matches.csv` | 86 | Named companies matched to DART corp_codes (90% match rate) |
 
 ## Data Sources (v1.0)
 
@@ -31,12 +33,15 @@ Six violation types, applied consistently across both FSS and SFC decisions:
 
 | Type | Count (violations.csv) |
 |------|------------------------|
-| `asset_inflation` | 76 |
-| `revenue_fabrication` | 45 |
-| `disclosure_fraud` | 44 |
-| `liability_suppression` | 16 |
-| `related_party` | 13 |
-| `cost_distortion` | 5 |
+| `asset_inflation` | 71 |
+| `revenue_fabrication` | 47 |
+| `disclosure_fraud` | 43 |
+| `liability_suppression` | 20 |
+| `related_party` | 12 |
+| `cost_distortion` | 6 |
+| **Total** | **199** |
+
+41 of the 240 violation rows are unlabeled (LLM enrichment did not yield a confident type assignment); these can be reviewed via `data/curated/manual_patches.json`.
 
 ## Beneish Component Validation
 
